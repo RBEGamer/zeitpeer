@@ -1,0 +1,108 @@
+node_id = 900
+listen_addr = "0.0.0.0:32900"
+redis_url = "redis://127.0.0.1:6379/"
+phc_device = "/dev/ptp0"
+telemetry_addr = "0.0.0.0:9190"
+
+[sampling]
+interval_ms = 500
+window_sec = 60
+burst = 1
+
+[filter]
+lambda = 0.2
+trim_ratio = 0.2
+best_quantile = 0.6
+min_samples_per_peer = 3
+
+[mode]
+observer_only = true
+control_enable = false
+
+[[ntp_sources]]
+id = 9101
+host = "time.google.com"
+alias = "google"
+weight = 0.15
+poll_interval_ms = 2000
+timeout_ms = 1200
+
+[[ntp_sources]]
+id = 9102
+host = "pool.ntp.org"
+alias = "pool"
+weight = 0.1
+poll_interval_ms = 3000
+timeout_ms = 1500
+
+[[ntp_sources]]
+id = 9103
+host = "time.cloudflare.com"
+alias = "cloudflare"
+weight = 0.1
+poll_interval_ms = 2500
+timeout_ms = 1500
+
+[[ntp_sources]]
+id = 9104
+host = "0.pool.ntp.org"
+alias = "pool-0"
+weight = 0.1
+poll_interval_ms = 3000
+timeout_ms = 1500
+
+[[ntp_sources]]
+id = 9105
+host = "1.pool.ntp.org"
+alias = "pool-1"
+weight = 0.1
+poll_interval_ms = 3000
+timeout_ms = 1500
+
+[[ntp_sources]]
+id = 9106
+host = "2.pool.ntp.org"
+alias = "pool-2"
+weight = 0.1
+poll_interval_ms = 3000
+timeout_ms = 1500
+
+[[ntp_sources]]
+id = 9107
+host = "3.pool.ntp.org"
+alias = "pool-3"
+weight = 0.1
+poll_interval_ms = 3000
+timeout_ms = 1500
+
+[[ntp_sources]]
+id = 9108
+host = "time.nist.gov"
+alias = "nist"
+weight = 0.08
+poll_interval_ms = 4000
+timeout_ms = 2000
+
+[[ntp_sources]]
+id = 9109
+host = "time.windows.com"
+alias = "windows"
+weight = 0.08
+poll_interval_ms = 4000
+timeout_ms = 2000
+
+[[ntp_sources]]
+id = 9110
+host = "ntp.ubuntu.com"
+alias = "ubuntu"
+weight = 0.08
+poll_interval_ms = 3500
+timeout_ms = 2000
+
+[[ntp_sources]]
+id = 9111
+host = "time1.google.com"
+alias = "google-1"
+weight = 0.12
+poll_interval_ms = 2200
+timeout_ms = 1200
