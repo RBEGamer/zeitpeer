@@ -70,6 +70,17 @@ services:
     depends_on:
       - redis
 
+  localntpserver:
+    build:
+      context: localntpserver/
+      dockerfile: Dockerfile
+    ports:
+      - "123:123/udp"
+    volumes:
+      - ntp-state:/var/lib/chrony
+    restart: unless-stopped
+
 volumes:
   grafana-data:
   redisinsight:
+  ntp-state:

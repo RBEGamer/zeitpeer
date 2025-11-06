@@ -30,6 +30,11 @@ port = 32001
 #port = 32002
 
 [[ntp_sources]]
+id = 9000
+host = "localntpserver"
+alias = "localntpserver"
+
+[[ntp_sources]]
 id = 9001
 host = "time.google.com"
 alias = "ntp-google"
