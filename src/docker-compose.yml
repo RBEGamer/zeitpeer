@@ -17,7 +17,14 @@ services:
     restart: unless-stopped
 
   peer1:
-    build: .
+    build:
+      Dockerfile: Dockerfile
+      context: .
+      security_opt:
+        - seccomp:unconfined
+    container_name: peer1
+
+
     environment:
       - CONFIG=/app/config/peer1.toml
     volumes:
@@ -31,19 +38,6 @@ services:
     devices:
       - "/dev/ptp0:/dev/ptp0"
 
-  peer2:
-    build: .
-    environment:
-      - CONFIG=/app/config/peer2.toml
-    volumes:
-      - ./config:/app/config:ro
-    #network_mode: host
-    #ports:
-    #  - "9100:9100"
-    depends_on:
-      - redis
-    devices:
-      - "/dev/ptp0:/dev/ptp0"
 
   prometheus:
     image: prom/prometheus:v2.53.0
