@@ -17,9 +17,7 @@ services:
     restart: unless-stopped
 
   peer1:
-    build:
-      Dockerfile: Dockerfile
-      context: .
+    build: .
     security_opt:
       - seccomp:unconfined
     container_name: peer1
