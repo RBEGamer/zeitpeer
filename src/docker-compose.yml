@@ -20,8 +20,8 @@ services:
     build:
       Dockerfile: Dockerfile
       context: .
-      security_opt:
-        - seccomp:unconfined
+    security_opt:
+      - seccomp:unconfined
     container_name: peer1
 
 
