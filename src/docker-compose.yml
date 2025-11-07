@@ -90,8 +90,21 @@ services:
       - ntp-public-state:/var/lib/chrony
     restart: unless-stopped
 
+  ptpntpserver:
+    build:
+      context: ptpntpserver/
+      dockerfile: Dockerfile
+    ports:
+      - "2123:123/udp"
+    devices:
+      - "/dev/ptp0:/dev/ptp0"
+    volumes:
+      - ntp-ptp-state:/var/lib/chrony
+    restart: unless-stopped
+
 volumes:
   grafana-data:
   redisinsight:
   ntp-state:
   ntp-public-state:
+  ntp-ptp-state:
