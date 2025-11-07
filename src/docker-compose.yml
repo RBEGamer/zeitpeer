@@ -30,8 +30,8 @@ services:
     depends_on:
       - redis
 
-#    devices:
-#      - "/dev/ptp0:/dev/ptp0"
+    devices:
+      - "/dev/ptp0:/dev/ptp0"
 
   peer2:
     build: .
@@ -44,8 +44,8 @@ services:
     #  - "9100:9100"
     depends_on:
       - redis
-#    devices:
-#      - "/dev/ptp0:/dev/ptp0"
+    devices:
+      - "/dev/ptp0:/dev/ptp0"
 
   prometheus:
     image: prom/prometheus:v2.53.0

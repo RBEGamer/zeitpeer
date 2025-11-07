@@ -1,7 +1,7 @@
 node_id = 1
 listen_addr = "0.0.0.0:32001"
 redis_url = "redis://redis:6379/"
-#phc_device = "/dev/ptp0"
+phc_device = "/dev/ptp0"
 telemetry_addr = "0.0.0.0:9100"
 
 [sampling]
