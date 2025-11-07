@@ -80,7 +80,18 @@ services:
       - ntp-state:/var/lib/chrony
     restart: unless-stopped
 
+  publicntpserver:
+    build:
+      context: publicntpserver/
+      dockerfile: Dockerfile
+    ports:
+      - "1123:123/udp"
+    volumes:
+      - ntp-public-state:/var/lib/chrony
+    restart: unless-stopped
+
 volumes:
   grafana-data:
   redisinsight:
   ntp-state:
+  ntp-public-state:

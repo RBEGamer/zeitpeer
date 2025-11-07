@@ -30,9 +30,14 @@ ip = "127.0.0.1"
 port = 32002
 
 [[ntp_sources]]
-id = 9000
+id = 8999
 host = "localntpserver"
 alias = "localntpserver"
+
+[[ntp_sources]]
+id = 9000
+host = "publicntpserver"
+alias = "publicntpserver"
 
 [[ntp_sources]]
 id = 9001

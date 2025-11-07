@@ -30,9 +30,14 @@ port = 32001
 #port = 32002
 
 [[ntp_sources]]
-id = 9000
+id = 8999
 host = "localntpserver"
 alias = "localntpserver"
+
+[[ntp_sources]]
+id = 9000
+host = "publicntpserver"
+alias = "publicntpserver"
 
 [[ntp_sources]]
 id = 9001
@@ -91,3 +96,9 @@ alias = "ntp-nist"
 weight = 0.2
 poll_interval_ms = 2000
 timeout_ms = 1000
+
+
+[[ntp_sources]]
+id = 9009
+host = "time.aws.com"
+alias = "time.aws"
